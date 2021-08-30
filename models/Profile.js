@@ -27,12 +27,6 @@ const ProfileSchema = new Mongoose.Schema({
     bio: {
         type: String
     },
-    GitHub_User: {
-        type: String
-    },
-    LinkedIn_User: {
-        type: String
-    },
 
     // Have users enter in their work experience
     experience: [
