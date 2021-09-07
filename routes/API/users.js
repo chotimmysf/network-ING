@@ -23,7 +23,7 @@ Router.post('/', [
         const errors = validationResult(req);
         // If there are errors, show statuses
         if (!errors.isEmpty()) {
-            return res.status(400).json({ errors: error.Router.array() });
+            return res.status(400).json({ errors: errors.array() });
         }
 
         const { name, email, password } = req.body;
