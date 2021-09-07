@@ -56,9 +56,6 @@ const ProfileSchema = new Mongoose.Schema({
             },
             description: {
                 type: String
-            },
-            skillsUsed: {
-                type: [String]
             }
         }
     ],
@@ -91,9 +88,6 @@ const ProfileSchema = new Mongoose.Schema({
             },
             description: {
                 type: String
-            },
-            skills: {
-                type: [String]
             }
         }
     ],
