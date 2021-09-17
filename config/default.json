@@ -1,4 +1,6 @@
 {
     "mongoURI": "mongodb+srv://networkING:strugglinginpython@networking.9rxxx.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
-    "JWT_Token": "The Secret Token"
+    "JWT_Token": "The Secret Token",
+    "githubClientId": "71395c4605a85c4beb8c",
+    "githubSecret": "aee05bd171f4ad3ec18fb20a9f67914c82f30a5f"
 }
