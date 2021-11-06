@@ -5,11 +5,14 @@
   "main": "server.js",
   "scripts": {
     "start": "node server",
-    "server": "nodemon server"
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "author": "NetworkING",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.6",
     "cowsay": "^1.5.0",
@@ -18,11 +21,18 @@
     "gravatar": "^1.8.1",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
     "mongoose": "^5.13.7",
+    "react-moment": "^1.1.1",
+    "react-redux": "^7.2.6",
+    "react-router-dom": "^6.0.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.4.0",
     "request": "^2.88.2"
   },
   "devDependencies": {
     "concurrently": "^6.2.1",
     "nodemon": "^2.0.12"
-  }
+  },
+  "proxy":"https://localhost:5000"
 }
