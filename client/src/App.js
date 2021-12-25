@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/layout/navbar';
 import Landing from './components/layout/landing';
 import Register from './components/auth/Register';
 import Login from './components/auth/Login'; 
+import Alert from './components/layout/Alert';
 
 // Redux
 import { Provider } from 'react-redux';
