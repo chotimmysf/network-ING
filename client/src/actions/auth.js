@@ -39,7 +39,7 @@ export const registerUser = ({ name, email, password }) => async dispatch => {
 
     try {
         const res = await axios.post('/api/users', body, config);
-        
+
         dispatch({ 
             type: REGISTER_SUCCESS,
             payload: res.data
@@ -90,4 +90,9 @@ export const loginUser = ({ email, password }) => async dispatch => {
             type: LOGIN_FAIL
         });
     }
+}
+
+// Logout & Clear Profile
+export const logout = () => dispatch => {
+    dispatch({ type: LOGOUT });
 }
