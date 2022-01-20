@@ -1,8 +1,10 @@
-import React, {Fragment,useState} from 'react'
-import PropTypes from 'prop-types'
+import React, {Fragment,useState} from 'react';
+import { Link, withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { createProfile } from '../../actions/profile';
 
-const createProfile = props => {
+const CreateProfile = ({ createProfile, history}) => {
     const [formData, setFormData] = useState({
         user: '',
         portfolio: '',
@@ -27,6 +29,11 @@ const createProfile = props => {
 
     const onChange = e => setFormData({ ...formData, [e.target.name]: e.target.value})
 
+    const Submit = e => {
+      e.preventDefault();
+      createProfile(form, history);
+    }
+
     return (
         <Fragment>
           <h1 className="large text-primary">
@@ -37,7 +44,7 @@ const createProfile = props => {
         profile stand out
       </p>
       <small>* = required field</small>
-      <form className="form">
+      <form className="form" onSubmit={e => onSubmit(e)}>
         <div className="form-group">
           <select name="status" value={status} onChange={() => onChange(e)}>
             <option value="0">* Select Professional Status</option>
@@ -134,4 +141,8 @@ createProfile.propTypes = {
 
 }
 
-export default createProfile
+CreateProfile.propTypes = {
+  createProfile: PropTypes.func.isRequired,
+};
+
+export default connect(null, {createProfile})(CreateProfile);
