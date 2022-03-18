@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 import Moment from 'react-moment';
 import { connect } from 'mongoose';
 import { addLike, unlike, DELETE_POST } from '../../actions/post';
-import e from 'express';
 
-const PostItem = ({ addLike, unlike, auth, post: {_id, text, name, avatar, user, likes, comments, date} }) => (
+const PostItem = ({ addLike, unlike, auth, post: {_id, text, name, avatar, user, likes, comments, date}, showActions }) => (
     <div class="post bg-white p-1 my-1">
     <div>
       <Link to={`/profile/${user}`}>
@@ -23,7 +22,9 @@ const PostItem = ({ addLike, unlike, auth, post: {_id, text, name, avatar, user,
        <p class="post-date">
           Posted on <Moment format='YYYY/MM/DD'>{date}</Moment>
       </p>
-      <button onClick={e => addLike(_id)} type="button" class="btn btn-light">
+
+      {showActions && <Fragment>
+        <button onClick={e => addLike(_id)} type="button" class="btn btn-light">
         <i class="fas fa-thumbs-up"></i>{' '}
         <span>{likes.length > 0 && (
             <span>{likes.length}</span>
@@ -45,9 +46,14 @@ const PostItem = ({ addLike, unlike, auth, post: {_id, text, name, avatar, user,
             <i class="fas fa-times"></i>
         </button>
       )}
+        </Fragment>}
     </div>
   </div>
 )
+
+PostItem.defaultProps = {
+  showActions: true
+}
 
 PostItem.propTypes = {
     post: PropTypes.object.isRequired,
