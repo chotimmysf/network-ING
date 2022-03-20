@@ -19,7 +19,7 @@ const PostForm = ({ addPost }) => {
         }}>
             <textarea name="text" cols="30" rows="6" 
             placeholder="Write something inspirational..." value={text}
-            onChange={e => setTextx(e.target.value)} required></textarea>
+            onChange={e => setText(e.target.value)} required></textarea>
         </form>
     </div>
   )
